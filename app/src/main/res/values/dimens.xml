@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_side_question">25dp</dimen>
+    <dimen name="padding_buttom_up_question">10dp</dimen>
+
+    <dimen name="margin_top_question">25dp</dimen>
+    <dimen name="margin_top_first_answer">50dp</dimen>
+    <dimen name="margin_top_answer">10dp</dimen>
+
+    <dimen name="question_text_size">25sp</dimen>
+</resources>

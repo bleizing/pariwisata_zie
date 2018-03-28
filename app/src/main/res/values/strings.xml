@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Pariwisata</string>
+
+    <string name="hello_you">Hello You!</string>
+
+    <string name="masukkan_kriteria">Masukkan Kriteria</string>
+    <string name="mau_kemana_ya">Mau Kemana Ya?</string>
+
+    <string name="question_one">Question 1</string>
+    <string name="answer_one_question_one">Answer One Q1</string>
+    <string name="answer_two_question_one">Answer Two Q1</string>
+    <string name="answer_three_question_one">Answer Three Q1</string>
+
+    <string name="question_two">Question 2</string>
+    <string name="answer_one_question_two">Answer One Q2</string>
+    <string name="answer_two_question_two">Answer Two Q2</string>
+    <string name="answer_three_question_two">Answer Three Q2</string>
+
+    <string name="question_three">Question 3</string>
+    <string name="answer_one_question_three">Answer One Q3</string>
+    <string name="answer_two_question_three">Answer Two Q3</string>
+    <string name="answer_three_question_three">Answer Three Q3</string>
 </resources>
