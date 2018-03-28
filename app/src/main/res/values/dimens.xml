@@ -8,4 +8,7 @@
     <dimen name="margin_top_answer">10dp</dimen>
 
     <dimen name="question_text_size">25sp</dimen>
+
+    <dimen name="width_image_info">250dp</dimen>
+    <dimen name="height_image_info">250dp</dimen>
 </resources>

@@ -15,4 +15,9 @@ public class Constants {
     public static final String FRAGMENT_INFO_RECOMMENDATION_TAG = "InfoRecommendationFragment";
     public static final String FRAGMENT_RECOMMENDATION_TAG = "RecommendationFragment";
 
+    public static final String MALIOBORO = "Malioboro";
+    public static final String GUNUNG_MERAPI = "Gunung Merapi";
+    public static final String CANDI_PRAMBANAN = "Candi Prambanan";
+    public static final String CANDI_BOROBUDUR = "Candi Borobudur";
+    public static final String PARANGTRITIS = "Parangtritis";
 }

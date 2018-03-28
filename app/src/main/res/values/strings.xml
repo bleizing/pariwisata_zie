@@ -20,4 +20,13 @@
     <string name="answer_one_question_three">Answer One Q3</string>
     <string name="answer_two_question_three">Answer Two Q3</string>
     <string name="answer_three_question_three">Answer Three Q3</string>
+
+    <string name="recommendation_one">Recommendation 1</string>
+    <string name="recommendation_two">Recommendation 2</string>
+    <string name="recommendation_three">Recommendation 3</string>
+
+    <string name="detail_info">Detail Info Recommendation Text</string>
+    <string name="choose_recommendation">Pilih Rekomendasi Anda</string>
+    <string name="our_recommendation">Rekomendasi Kami</string>
+    <string name="agree">SETUJU</string>
 </resources>

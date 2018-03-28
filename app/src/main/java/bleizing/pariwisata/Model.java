@@ -11,6 +11,8 @@ public class Model {
     private static int questionTwo = 0;
     private static int questionThree = 0;
 
+    private static String recommendation = "";
+
     public static void setChooseRecommendation(boolean chooseRecommendation) {
         Model.chooseRecommendation = chooseRecommendation;
     }
@@ -41,5 +43,13 @@ public class Model {
 
     public static int getQuestionThree() {
         return questionThree;
+    }
+
+    public static void setRecommendation(String recommendation) {
+        Model.recommendation = recommendation;
+    }
+
+    public static String getRecommendation() {
+        return recommendation;
     }
 }

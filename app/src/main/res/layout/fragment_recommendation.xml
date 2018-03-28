@@ -1,13 +1,47 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bleizing.pariwisata.fragments.RecommendationFragment">
+    tools:context="bleizing.pariwisata.fragments.RecommendationFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top_question"
+        android:gravity="center_horizontal"
+        android:text="@string/our_recommendation"
+        android:textStyle="bold"
+        android:textSize="@dimen/question_text_size"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_recommendation_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_top_question"
+        android:text="@string/hello_you"
+        android:textSize="@dimen/question_text_size"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="@dimen/width_image_info"
+        android:layout_height="@dimen/height_image_info"
+        android:src="@mipmap/ic_launcher"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_top_question"/>
+
+    <Button
+        android:id="@+id/btn_agree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_side_question"
+        android:layout_marginEnd="@dimen/padding_side_question"
+        android:layout_marginTop="@dimen/margin_top_first_answer"
+        android:paddingTop="@dimen/padding_buttom_up_question"
+        android:paddingBottom="@dimen/padding_buttom_up_question"
+        android:text="@string/agree"
+        android:textColor="@color/white"
+        android:background="@drawable/button_border"/>
+
+</LinearLayout>

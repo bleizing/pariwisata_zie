@@ -2,11 +2,14 @@ package bleizing.pariwisata.fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import bleizing.pariwisata.Model;
 import bleizing.pariwisata.R;
 
 /**
@@ -27,4 +30,11 @@ public class InfoRecommendationFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_info_recommendation, container, false);
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        TextView tv_header_info = (TextView) getActivity().findViewById(R.id.tv_header_info);
+        tv_header_info.setText(Model.getRecommendation());
+    }
 }

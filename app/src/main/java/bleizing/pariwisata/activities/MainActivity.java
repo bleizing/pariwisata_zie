@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import bleizing.pariwisata.Constants;
 import bleizing.pariwisata.R;
 import bleizing.pariwisata.fragments.ChooseRecommendationFragment;
+import bleizing.pariwisata.fragments.InfoRecommendationFragment;
 import bleizing.pariwisata.fragments.MainFragment;
 import bleizing.pariwisata.fragments.QuestionOneFragment;
 import bleizing.pariwisata.fragments.QuestionThreeFragment;
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         QuestionThreeFragment fragment = new QuestionThreeFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, fragment, Constants.FRAGMENT_QUESTION_TWO_TAG);
+        transaction.replace(R.id.fragment_container, fragment, Constants.FRAGMENT_QUESTION_THREE_TAG);
         transaction.addToBackStack(null);
         transaction.commit();
     }
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         ChooseRecommendationFragment fragment = new ChooseRecommendationFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, fragment, Constants.FRAGMENT_QUESTION_TWO_TAG);
+        transaction.replace(R.id.fragment_container, fragment, Constants.FRAGMENT_CHOOSE_RECOMMENDATION_TAG);
         transaction.addToBackStack(null);
         transaction.commit();
     }
@@ -105,8 +106,29 @@ public class MainActivity extends AppCompatActivity {
         RecommendationFragment fragment = new RecommendationFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, fragment, Constants.FRAGMENT_QUESTION_TWO_TAG);
+        transaction.replace(R.id.fragment_container, fragment, Constants.FRAGMENT_RECOMMENDATION_TAG);
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    public void changeToInfoRecommedationFragment() {
+        clearBackstack();
+
+        InfoRecommendationFragment fragment = new InfoRecommendationFragment();
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment, Constants.FRAGMENT_INFO_RECOMMENDATION_TAG);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    public void clearBackstack() {
+
+        FragmentManager.BackStackEntry entry = getSupportFragmentManager().getBackStackEntryAt(
+                0);
+        getSupportFragmentManager().popBackStack(entry.getId(),
+                FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        getSupportFragmentManager().executePendingTransactions();
+
     }
 }
