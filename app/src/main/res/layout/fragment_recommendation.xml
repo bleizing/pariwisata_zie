@@ -18,11 +18,10 @@
         android:id="@+id/tv_recommendation_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_top_question"
-        android:text="@string/hello_you"
+        android:gravity="center_horizontal"
         android:textSize="@dimen/question_text_size"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="@dimen/width_image_info"
