@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import bleizing.pariwisata.Model;
@@ -42,6 +43,14 @@ public class QuestionTwoFragment extends Fragment {
         tv_answer_one.setOnClickListener(onClickListener);
         tv_answer_two.setOnClickListener(onClickListener);
         tv_answer_three.setOnClickListener(onClickListener);
+
+        ImageView imgBack = (ImageView) getActivity().findViewById(R.id.img_back);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((MainActivity) getActivity()).goBack();
+            }
+        });
     }
 
     private View.OnClickListener onClickListener = new View.OnClickListener() {

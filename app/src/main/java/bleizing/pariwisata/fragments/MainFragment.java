@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import bleizing.pariwisata.Model;
 import bleizing.pariwisata.R;
@@ -36,25 +37,32 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Button btn_kriteria = (Button) getActivity().findViewById(R.id.btn_kriteria);
-        btn_kriteria.setOnClickListener(onButtonClicked);
+        LinearLayout linMauKemana = (LinearLayout) getActivity().findViewById(R.id.lin_mau_kemana);
+        linMauKemana.setOnClickListener(onButtonClicked);
 
-        Button btn_kemana = (Button) getActivity().findViewById(R.id.btn_kemana);
-        btn_kemana.setOnClickListener(onButtonClicked);
+        LinearLayout linMasukkanKriteria = (LinearLayout) getActivity().findViewById(R.id.lin_kriteria);
+        linMasukkanKriteria.setOnClickListener(onButtonClicked);
+
+        LinearLayout linListWisata = (LinearLayout) getActivity().findViewById(R.id.lin_list_wisata);
+        linListWisata.setOnClickListener(onButtonClicked);
     }
 
     private View.OnClickListener onButtonClicked = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.btn_kriteria :
-                    Model.setChooseRecommendation(true);
+                case R.id.lin_mau_kemana :
+//                    Model.setChooseRecommendation(true);
+                    ((MainActivity) getActivity()).changeToMauKemanaFragment();
                     break;
-                case R.id.btn_kemana :
-                    Model.setChooseRecommendation(false);
+                case R.id.lin_kriteria :
+//                    Model.setChooseRecommendation(false);
+                    ((MainActivity) getActivity()).changeToMasukkanKriteriaFragment();
+                    break;
+                case R.id.lin_list_wisata :
+                    ((MainActivity) getActivity()).changeToDaftarWisataFragment();
                     break;
             }
-            ((MainActivity) getActivity()).changeToQuestionOneFragment();
         }
     };
 }

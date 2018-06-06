@@ -12,12 +12,10 @@ public class Constants {
     public static final String FRAGMENT_QUESTION_TWO_TAG = "QuestionTwoFragment";
     public static final String FRAGMENT_QUESTION_THREE_TAG = "QuestionThreeFragment";
     public static final String FRAGMENT_CHOOSE_RECOMMENDATION_TAG = "ChooseRecommendationFragment";
-    public static final String FRAGMENT_INFO_RECOMMENDATION_TAG = "InfoRecommendationFragment";
+    public static final String FRAGMENT_DETAIL_WISATA_TAG = "DetailWisataFragment";
     public static final String FRAGMENT_RECOMMENDATION_TAG = "RecommendationFragment";
-
-    public static final String MALIOBORO = "Malioboro";
-    public static final String GUNUNG_MERAPI = "Gunung Merapi";
-    public static final String CANDI_PRAMBANAN = "Candi Prambanan";
-    public static final String CANDI_BOROBUDUR = "Candi Borobudur";
-    public static final String PARANGTRITIS = "Parangtritis";
+    public static final String FRAGMENT_MAU_KEMANA_TAG = "MauKemanaFragment";
+    public static final String FRAGMENT_MASUKKAN_KRITERIA_TAG = "MasukkanKriteriaFragment";
+    public static final String FRAGMENT_DAFTAR_WISATA_TAG = "DaftarWisataFragment";
+    public static final String FRAGMENT_WISATA_TAG = "WisataFragment";
 }

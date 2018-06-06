@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_screen1"
+    tools:context=".fragments.MasukkanKriteriaFragment"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:gravity="center"
+        android:text="Halo kamu ingin merekomendasi?"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:layout_marginTop="35dp"
+        android:text="Disini kamu dapat memasukkan rekomendasi tempat wisata untuk YouGo! yang nanti akan digunakan untuk pengguna
+yang membutuhkan rekomendasi. Tetapi sebelumnya kamu harus menjawab beberapa pertanyaan seputar liburanmu
+agar YouGo! dapat menyimpan rekomendasimu dengan baik."
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:text="Tentang YouGo:"
+        android:textColor="@color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingStart="25dp"
+        android:paddingEnd="25dp"
+        android:text="- Kamu hanya bisa memilih 1 rekomendasi tempat wisata"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/btn_ayo_mulai"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:background="@drawable/transparent_with_border"
+        android:text="@string/ayo_mulai"
+        android:textColor="@color/white"/>
+
+</LinearLayout>

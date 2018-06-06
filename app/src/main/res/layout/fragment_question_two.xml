@@ -2,8 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_screen"
     tools:context="bleizing.pariwisata.fragments.QuestionTwoFragment"
     android:orientation="vertical">
+
+    <include
+        layout="@layout/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -16,7 +24,7 @@
         android:text="@string/question_two"
         android:textSize="@dimen/question_text_size"
         android:textColor="@color/white"
-        android:background="@drawable/button_border"/>
+        android:background="@drawable/transparent_with_border"/>
 
     <TextView
         android:id="@+id/tv_answer_one"
@@ -30,7 +38,7 @@
         android:text="@string/answer_one_question_two"
         android:textSize="@dimen/question_text_size"
         android:textColor="@color/white"
-        android:background="@drawable/button_border"/>
+        android:background="@drawable/transparent_with_border"/>
 
     <TextView
         android:id="@+id/tv_answer_two"
@@ -44,7 +52,7 @@
         android:text="@string/answer_two_question_two"
         android:textSize="@dimen/question_text_size"
         android:textColor="@color/white"
-        android:background="@drawable/button_border"/>
+        android:background="@drawable/transparent_with_border"/>
 
     <TextView
         android:id="@+id/tv_answer_three"
@@ -58,6 +66,6 @@
         android:text="@string/answer_three_question_two"
         android:textSize="@dimen/question_text_size"
         android:textColor="@color/white"
-        android:background="@drawable/button_border"/>
+        android:background="@drawable/transparent_with_border"/>
 
 </LinearLayout>
