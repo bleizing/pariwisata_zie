@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import bleizing.pariwisata.Model;
+import bleizing.pariwisata.MySupportMapFragment;
 import bleizing.pariwisata.NetApi;
 import bleizing.pariwisata.R;
 import bleizing.pariwisata.Wisata;
@@ -65,6 +67,8 @@ public class DetailWisataFragment extends Fragment implements OnMapReadyCallback
 
     private RequestQueue requestQueue;
 
+    private ScrollView scrollView;
+
     public DetailWisataFragment() {
 
     }
@@ -79,6 +83,20 @@ public class DetailWisataFragment extends Fragment implements OnMapReadyCallback
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        scrollView = (ScrollView) getActivity().findViewById(R.id.scroll_view);
+
+        MySupportMapFragment supportMapFragment;
+
+        supportMapFragment = (MySupportMapFragment) getChildFragmentManager().findFragmentById(R.id.maps_view);
+        supportMapFragment.setListener(new MySupportMapFragment.OnTouchListener() {
+            @Override
+            public void onTouch() {
+                scrollView.requestDisallowInterceptTouchEvent(true);
+            }
+        });
+
+        supportMapFragment.getMapAsync(this);
 
         wisataId = 0;
 
@@ -117,8 +135,8 @@ public class DetailWisataFragment extends Fragment implements OnMapReadyCallback
         btnPilihRekomendasi.setVisibility(View.GONE);
         linBack.setVisibility(View.GONE);
 
-        SupportMapFragment fragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.maps_view);
-        fragment.getMapAsync(this);
+//        SupportMapFragment fragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.maps_view);
+//        fragment.getMapAsync(this);
 
         Bundle bundle = getArguments();
         if (bundle != null) {
@@ -133,15 +151,6 @@ public class DetailWisataFragment extends Fragment implements OnMapReadyCallback
 //            setMapData();
         }
 
-        if (Model.isChooseRecommendation()) {
-            // Check if is ChooseRecommendation == true
-            btnBackHome.setVisibility(View.GONE);
-            btnPilihRekomendasi.setVisibility(View.VISIBLE);
-        } else {
-            btnPilihRekomendasi.setVisibility(View.GONE);
-            btnBackHome.setVisibility(View.VISIBLE);
-        }
-
         if (Model.isJustShowWisataList()) {
             linBack.setVisibility(View.VISIBLE);
             btnBackHome.setVisibility(View.GONE);
@@ -149,11 +158,30 @@ public class DetailWisataFragment extends Fragment implements OnMapReadyCallback
         } else {
             linBack.setVisibility(View.GONE);
         }
+
+        if (Model.isChooseRecommendation()) {
+            // Check if is ChooseRecommendation == true
+            btnBackHome.setVisibility(View.GONE);
+            btnPilihRekomendasi.setVisibility(View.VISIBLE);
+            linBack.setVisibility(View.VISIBLE);
+        } else {
+            btnPilihRekomendasi.setVisibility(View.GONE);
+            btnBackHome.setVisibility(View.VISIBLE);
+            linBack.setVisibility(View.GONE);
+
+            if (Model.isJustShowWisataList()) {
+                linBack.setVisibility(View.VISIBLE);
+                btnBackHome.setVisibility(View.GONE);
+            }
+        }
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         map = googleMap;
+
+        map.getUiSettings().setAllGesturesEnabled(true);
+        map.getUiSettings().setZoomControlsEnabled(true);
 
         if (wisata != null) {
             setMapData();
@@ -162,7 +190,7 @@ public class DetailWisataFragment extends Fragment implements OnMapReadyCallback
 
     private void prosesPilihRekomendasi() {
         progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Please Wait...");
+        progressDialog.setMessage("Mohon Tunggu...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
@@ -198,8 +226,8 @@ public class DetailWisataFragment extends Fragment implements OnMapReadyCallback
                 } else {
                     builder = new AlertDialog.Builder(getContext());
                 }
-                builder.setTitle("Berhasil")
-                        .setMessage("Anda Telah Berhasil Merekomendasikan Tempat Ini")
+                builder.setTitle("Berhasil!")
+                        .setMessage("Anda telah berhasil merekomendasikan tempat ini. Terima kasih!")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 ((MainActivity) getActivity()).changeToMainFragment();
@@ -223,7 +251,7 @@ public class DetailWisataFragment extends Fragment implements OnMapReadyCallback
 
     private void prosesGetRekomendasi() {
         progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Please Wait...");
+        progressDialog.setMessage("Mohon Tunggu...");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
@@ -250,13 +278,37 @@ public class DetailWisataFragment extends Fragment implements OnMapReadyCallback
             public void onResponse(JSONObject response) {
                 Log.d(TAG, "response = " + response);
                 try {
-                    wisataId = response.getInt("rekomendasi_id");
 
-                    getWisataById();
-                    setMapData();
-                    setData();
+                    String status = response.getString("status");
 
-                    progressDialog.dismiss();
+                    if (status.equals("success")) {
+                        wisataId = response.getInt("rekomendasi_id");
+
+                        getWisataById();
+                        setMapData();
+                        setData();
+
+                        progressDialog.dismiss();
+                    } else {
+                        progressDialog.dismiss();
+                        AlertDialog.Builder builder;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            builder = new AlertDialog.Builder(getContext(), android.R.style.Theme_Material_Dialog_Alert);
+                        } else {
+                            builder = new AlertDialog.Builder(getContext());
+                        }
+                        builder.setTitle("Kesalahan!")
+                                .setMessage("Mohon maaf, sistem tidak dapat merekomendasikan tempat wisata anda. Silahkan mencoba untuk memberikan rekomendasi terlebih dahulu. Terima kasih!")
+                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        ((MainActivity) getActivity()).changeToMainFragment();
+                                    }
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+
+                    }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                     progressDialog.dismiss();

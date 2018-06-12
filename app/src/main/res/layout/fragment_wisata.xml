@@ -5,8 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.WisataFragment">
 
-
-
     <include
         layout="@layout/recycler_wisata"
         android:layout_width="match_parent"

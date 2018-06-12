@@ -2,9 +2,12 @@ package bleizing.pariwisata.fragments;
 
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -74,8 +77,21 @@ public class WisataFragment extends Fragment {
             }));
             recyclerView.setAdapter(adapter);
         } else {
-            Toast.makeText(getContext(), "Data Wisata Tidak Tersedia", Toast.LENGTH_SHORT).show();
-            ((MainActivity) getActivity()).goBack();
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(getContext(), android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(getContext());
+            }
+            builder.setTitle("Kesalahan!")
+                    .setMessage("Mohon maaf, daftar tempat wisata tidak tersedia. Terima kasih!")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            ((MainActivity) getActivity()).changeToMainFragment();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         }
 
         ImageView imgBack = (ImageView) getActivity().findViewById(R.id.img_back);

@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Pariwisata</string>
+    <string name="app_name">YouGo!</string>
 
     <string name="hello_you">Hello You!</string>
 
-    <string name="masukkan_kriteria">Masukkan Kriteria</string>
-    <string name="mau_kemana_ya">Mau Kemana Ya?</string>
+    <string name="masukkan_kriteria">Saya Ingin Merekomendasi!</string>
+    <string name="mau_kemana_ya">Rekomendasikan Saya!</string>
 
     <string name="question_one">Berapa Lama Kamu Berpergian?</string>
     <string name="answer_one_question_one">1-3 hari</string>
@@ -31,9 +31,9 @@
     <string name="agree">LANJUT</string>
 
     <string name="title_activity_welcome">Home Screen</string>
-    <string name="next">NEXT</string>
-    <string name="skip">SKIP</string>
-    <string name="start">GOT IT</string>
+    <string name="next">LANJUT</string>
+    <string name="skip">LEWATI</string>
+    <string name="start">MULAI</string>
 
     <string name="slide_1_desc">Halo selamat datang di aplikasi YouGo!</string>
 
@@ -42,7 +42,7 @@
     <string name="slide_3_desc">Jika kamu punya rekomendasi tempat wisata yang menarik YouGo juga dapat menerima rekomendasimu</string>
     <string name="slide_3_desc2">Saat ini YouGo! hanya meliputi tempat wisata provinsi D.I. Yogyakarta saja.</string>
 
-    <string name="list_wisata">Daftar Wisata</string>
+    <string name="list_wisata">Daftar Tempat Wisata</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
